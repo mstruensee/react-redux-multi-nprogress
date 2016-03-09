@@ -1,0 +1,39 @@
+{
+  "name": "react-redux-spinner",
+  "version": "0.1.0",
+  "description": "A spinner and loading bar for any long running tasks. For react with redux",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Storytel/react-redux-spinner.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "spinner",
+    "loadingbar",
+    "ajax"
+  ],
+  "author": "Alexander Olsson <noseglid@gmail.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Storytel/react-redux-spinner/issues"
+  },
+  "homepage": "https://github.com/Storytel/react-redux-spinner#readme",
+  "peerDependencies": {
+    "react": "^0.14.7",
+    "react-loader": "^2.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.6.5",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-2": "^6.5.0",
+    "react": "^0.14.7",
+    "react-loader": "^2.1.0"
+  }
+}
