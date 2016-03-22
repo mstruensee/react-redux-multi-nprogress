@@ -8,7 +8,6 @@ const config = [
       './example/index.js'
     ],
     output: {
-      publicPath: '/',
       path: __dirname + '/build/',
       filename: 'bundle.js'
     },
@@ -34,7 +33,6 @@ const config = [
       './src/index.js'
     ],
     output: {
-      publicPath: '/',
       path: __dirname + '/dist/',
       filename: 'index.js'
     },
