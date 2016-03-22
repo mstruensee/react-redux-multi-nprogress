@@ -20,7 +20,7 @@
     "ajax"
   ],
   "author": "Alexander Olsson <noseglid@gmail.com>",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Storytel/react-redux-spinner/issues"
   },
