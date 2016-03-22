@@ -1,3 +1,4 @@
+import '../node_modules/nprogress/nprogress.css';
 import { pendingTasksReducer, actionKey, begin, end } from './reducer.js';
 import Spinner from './spinner.js';
 

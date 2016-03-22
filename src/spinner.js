@@ -1,5 +1,5 @@
 import React from 'react';
-import Loader from 'react-loader';
+import NProgress from 'nprogress';
 
 class Spinner extends React.Component {
 
@@ -7,10 +7,17 @@ class Spinner extends React.Component {
     const { store } = this.context;
     this.previousPendingTasks = store.getState().pendingTasks;
     this.disposeStoreSubscription = store.subscribe(() => {
-      if (this.previousPendingTasks !== store.getState().pendingTasks) {
-        this.previousPendingTasks = store.getState().pendingTasks;
-        this.forceUpdate();
+      const diff = store.getState().pendingTasks - this.previousPendingTasks;
+      if (diff > 0) {
+        NProgress.start();
       }
+      if (diff < 0) {
+        NProgress.inc();
+      }
+      if (store.getState().pendingTasks === 0) {
+        NProgress.done();
+      }
+      this.previousPendingTasks = store.getState().pendingTasks;
     });
   }
 
@@ -19,8 +26,7 @@ class Spinner extends React.Component {
   }
 
   render() {
-    const { pendingTasks } = this.context.store.getState();
-    return (<Loader {...this.props} loaded={pendingTasks === 0} />);
+    return false;
   }
 }
 
