@@ -49,8 +49,11 @@ const App extends React.Component {
 }
 ```
 
-Start a long running task. This will increase the running tasks counter by 1.
-The spinner will be shown when the running tasks is greater than 0.
+Start a long running task. This will typically be when you begin fetching data
+from a server.
+
+This will increase the pending tasks counter by 1.
+The spinner will be shown when the pending tasks is greater than 0.
 ```javascript
 store.dispatch({
   type: 'ANY_OF_YOUR_ACTION_TYPES'
@@ -63,7 +66,7 @@ When your long running task is done.
 ```javascript
 store.dispatch({
   type: 'ANY_OF_YOUR_ACTION_TYPES_DONE'
-  [ pendingTask ]: end
+  [ pendingTask ]: end // Bracket [] embrace, remember?
   // Any additional key/values may be included here
 });
 ```
@@ -86,5 +89,22 @@ dispatch({
 ```javascript
 import { pendingTasksReducer as pendingTasks } from 'react-redux-spinner';
 const reducer = combineReducers({ pendingTasks });
+```
+
+  * Modify the appearance of the spinners (example modifies the color, but any css attributes can be set)
+
+```css
+#nprogress .bar {
+  background-color: #f4590a;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: #f4590a;
+  border-left-color: #f4590a;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #f4590a, 0 0 5px #f4590a;
+}
 ```
 
