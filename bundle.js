@@ -21514,7 +21514,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  margin: 0;\n  color: #34495E;\n  background-color: #BDC3C7;\n}\n\nh1 {\n  text-align: center;\n  background-color: #e0e0e0;\n  margin: 0;\n  padding: 20px;\n}\n\ndiv.buttons {\n  text-align: center;\n  background-color: #34495E;\n  padding: 20px;\n}\n\ndiv.buttons button, div.buttons button:active {\n  border: none;\n  background-color:  #7F8C8D;\n  color: #f5f5f5;\n  padding: 10px;\n  margin: 0 5px;\n  border-radius: 8px;\n  transition: background-color 0.2s linear;\n  cursor: pointer;\n}\n\ndiv.buttons button:hover {\n  background-color: #1ABC9C;\n}\n\ndiv.buttons button:focus {\n  outline: 0;\n}\n\ndiv.state {\n  padding: 20px;\n  text-align: center;\n}\n", ""]);
+	exports.push([module.id, "body {\n  margin: 0;\n  color: #34495E;\n  background-color: #BDC3C7;\n}\n\nh1 {\n  text-align: center;\n  background-color: #e0e0e0;\n  margin: 0;\n  padding: 20px;\n}\n\ndiv.buttons {\n  text-align: center;\n  background-color: #34495E;\n  padding: 20px;\n}\n\ndiv.buttons button, div.buttons button:active {\n  border: none;\n  background-color:  #7F8C8D;\n  color: #f5f5f5;\n  padding: 10px;\n  margin: 0 10px;\n  border-radius: 6px;\n  transition: background-color 0.2s linear;\n  cursor: pointer;\n}\n\ndiv.buttons button:hover {\n  background-color: #f4590a;\n}\n\ndiv.buttons button:focus {\n  outline: 0;\n}\n\ndiv.state {\n  padding: 20px;\n  text-align: center;\n}\n\n#nprogress .bar {\n  background-color:#f4590a;\n}\n\n#nprogress .spinner-icon {\n  border-top-color:#f4590a;\n  border-left-color:#f4590a;\n}\n\n#nprogress .peg {\n  box-shadow: 0 0 10px #f4590a, 0 0 5px #f4590a;\n}\n", ""]);
 
 	// exports
 
