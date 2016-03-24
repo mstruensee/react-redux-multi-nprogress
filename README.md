@@ -41,7 +41,6 @@ Put the `Spinner` component anywhere in your application.
 
 ```javascript
 import React from 'react';
-import ReactDOM from 'react-dom';
 const App extends React.Component {
   render() {
     return (<Spinner />)
