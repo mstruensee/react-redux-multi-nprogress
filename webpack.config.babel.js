@@ -35,7 +35,7 @@ const config = [
     output: {
       path: __dirname + '/dist/',
       filename: 'index.js',
-      libraryTarget: 'commonjs2'
+      libraryTarget: 'umd'
     },
     module: {
       loaders: [
