@@ -5,7 +5,7 @@ class Spinner extends React.Component {
 
   componentWillMount() {
     const { store } = this.context;
-    const {config } = this.props;
+    const { config } = this.props;
     this.previousPendingTasks = store.getState().pendingTasks;
     NProgress.configure(config);
     this.disposeStoreSubscription = store.subscribe(() => {
