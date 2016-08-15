@@ -107,3 +107,11 @@ const reducer = combineReducers({ pendingTasks });
 }
 ```
 
+  * Modify the configuration of the spinners (example modifies the tricklerate, for all possible changes see https://github.com/rstacruz/nprogress#configuration)
+
+```javascript
+  render() {
+    return (<Spinner config={{ trickleRate: 0.02 }} />)
+  }
+```
+
