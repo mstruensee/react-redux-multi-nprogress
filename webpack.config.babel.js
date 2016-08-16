@@ -25,24 +25,6 @@ const config = [
     devServer: {
       port: 3000
     }
-  },
-
-  {
-    name: 'dist',
-    entry: [
-      './src/index.js'
-    ],
-    output: {
-      path: __dirname + '/dist/',
-      filename: 'index.js',
-      libraryTarget: 'umd'
-    },
-    module: {
-      loaders: [
-        { test: /\.jsx?$/, include: [ path.join(__dirname, 'example/'), path.join(__dirname, 'src/') ], loaders: [ 'babel' ] },
-        { test: /\.css$/, loader: 'style-loader!css-loader' }
-      ]
-    }
   }
 ];
 

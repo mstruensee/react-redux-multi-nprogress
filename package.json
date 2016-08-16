@@ -2,7 +2,7 @@
   "name": "react-redux-spinner",
   "version": "0.4.0",
   "description": "A spinner and loading bar for any long running tasks. For react with redux",
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "scripts": {
     "example:run": "webpack-dev-server",
     "build": "webpack",
