@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "example:run": "webpack-dev-server",
-    "build": "webpack",
-    "test": "eslint src example"
+    "test": "eslint src example",
+    "build": "babel src --out-dir dist"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,8 @@
   "homepage": "https://github.com/Storytel/react-redux-spinner#readme",
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
-    "react-dom": "^0.14.0 || ^15.0.0"
+    "react-dom": "^0.14.0 || ^15.0.0",
+    "redux": "^3.5.2"
   },
   "dependencies": {
     "nprogress": "^0.2.0"
