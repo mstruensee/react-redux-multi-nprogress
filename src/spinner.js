@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import NProgress from 'nprogress';
 
-class Spinner extends React.Component {
+class Spinner extends Component {
 
   componentWillMount() {
     const { store } = this.context;
@@ -41,7 +41,6 @@ Spinner.contextTypes = {
 Spinner.propTypes = {
   config: React.PropTypes.object
 };
-
 
 Spinner.defaultProps = {
   config: {}
