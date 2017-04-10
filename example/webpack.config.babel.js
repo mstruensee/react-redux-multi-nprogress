@@ -35,7 +35,7 @@ const config = {
   ]
 };
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV !== 'development') {
   config.plugins.push(new UglifyJsPlugin({
     output: {
       comments: false
