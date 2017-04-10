@@ -8,8 +8,9 @@
     "example:build": "NODE_ENV=production webpack --config example/webpack.config.babel.js",
     "lint": "eslint src example test",
     "mocha": "mocha --compilers js:babel-core/register",
-    "test": "yarn run mocha && yarn run lint",
-    "build": "NODE_ENV=production webpack --config src/webpack.config.babel.js"
+    "test": "yarn mocha && yarn lint",
+    "build": "NODE_ENV=production webpack --config src/webpack.config.babel.js",
+    "prepublish": "yarn build"
   },
   "repository": {
     "type": "git",
