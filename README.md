@@ -70,6 +70,39 @@ store.dispatch({
 });
 ```
 
+## Configurable reducer
+
+Maybe you cannot have the `pendingTask` in the root of your actions.
+For instance, if you're trying to follow the [Flux Standard Actions](https://github.com/acdlite/flux-standard-action#actions)
+you're not allowed to have anything in the root except `type`, `payload`, `error` and `meta`.
+It would then be prudent to put `pendingTask` in `meta`.
+To get the reducer to look here instead you need to configure it to do so with `configurablePendingTasksReducer`.
+
+```javascript
+import { configurablePendingTasksReducer } from 'react-redux-spinner';
+import { createStore, combineReducers } from 'redux'
+const pendingTasks = configurablePendingTasksReducer({ actionKeyPath: [ 'meta' ] });
+const reducer = combineReducers({
+  pendingTasks: pendingTasksReducer
+});
+const store = createStore(reducer);
+```
+
+and then dispatch actions:
+
+```javascript
+store.dispatch({
+  type: 'ANY_OF_YOUR_ACTION_TYPES'
+  meta: {
+    [ pendingTask ]: begin
+  }
+});
+```
+
+The `actionKeyPath` may be as deeply nested as required.
+For instance, if you'd like to have the keys in `meta.async`, you'd provide `actionKeyPath: [ 'meta', 'async' ]`
+and then dispatch actions with `{ meta: { async: { [ pendingTask ]: begin } } }`
+
 ## Pro-tips
 
   * Don't want to bloat your namespace with `begin` or `end` variables?
