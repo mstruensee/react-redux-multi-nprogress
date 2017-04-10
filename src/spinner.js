@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import NProgress from 'nprogress';
 
-class Spinner extends Component {
+class Spinner extends React.Component {
 
   componentWillMount() {
     const { store } = this.context;

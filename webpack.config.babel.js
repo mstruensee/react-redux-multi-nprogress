@@ -1,30 +1,45 @@
 import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { optimize } from 'webpack';
+
+const { UglifyJsPlugin } = optimize;
 
 const config = [
   {
-    name: 'example',
+    name: 'react-redux-spinner',
     entry: [
-      './example/index.js'
+      './src/index.js'
     ],
+    externals: {
+      react: 'react',
+      'react-dom': 'ReactDOM'
+    },
     output: {
-      path: __dirname + '/build/',
-      filename: 'bundle.js'
+      path: __dirname + '/dist/',
+      filename: 'react-redux-spinner.js',
+      library: 'react-redux-spinner',
+      libraryTarget: 'umd',
+      publicPath: '/dist/'
     },
     module: {
       loaders: [
-        { test: /\.jsx?$/, include: [ path.join(__dirname, 'example/'), path.join(__dirname, 'src/') ], loaders: [ 'babel' ] },
-        { test: /\.css$/, loader: 'style-loader!css-loader' }
+        {
+          test: /\.jsx?$/,
+          include: [ path.join(__dirname, 'src/') ],
+          loader: 'babel-loader'
+        },
+        {
+          test: /\.css$/,
+          loader: 'style-loader!css-loader'
+        }
       ]
     },
     plugins: [
-      new HtmlWebpackPlugin({
-        title: 'Spinner for React/Redux example'
-      })
-    ],
-    devServer: {
-      port: 3000
-    }
+      new UglifyJsPlugin({
+        output: {
+          comments: false
+        }
+      }),
+    ]
   }
 ];
 

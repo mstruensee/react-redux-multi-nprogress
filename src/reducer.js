@@ -1,6 +1,6 @@
-const actionKey = '@@__rrs_pendingTask__@@';
-const begin = '@@__rrs_begin__@@';
-const end = '@__rrs_end__@@';
+const actionKey = Symbol('@@react-redux-spinner/pending-task');
+const begin = Symbol('@@react-redux-spinner/begin');
+const end = Symbol('@@react-redux-spinner/end');
 
 const reducer = (state = 0, action) => {
   if (action[actionKey] === begin) {
