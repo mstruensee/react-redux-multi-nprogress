@@ -12,8 +12,7 @@ const config = {
   ],
   output: {
     path: path.join(__dirname, '..', 'dist-example'),
-    filename: 'index.js',
-    publicPath: '/'
+    filename: 'index.js'
   },
   module: {
     rules: [
