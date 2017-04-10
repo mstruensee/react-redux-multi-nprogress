@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import { createStore, combineReducers } from 'redux';
 
@@ -27,10 +28,7 @@ const reducer = combineReducers({
 
 const store = createStore(reducer);
 
-const root = document.createElement('div');
-document.body.appendChild(root);
-
-class App extends React.Component {
+class App extends Component {
   constructor(props, context) {
     super(props, context);
     this.store = props.store;
@@ -84,10 +82,14 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  store: React.PropTypes.object.isRequired
+  store: PropTypes.object.isRequired
 };
 App.childContextTypes = {
-  store: React.PropTypes.object.isRequired
+  store: PropTypes.object.isRequired
 };
 
-ReactDOM.render(<App store={store} />, root);
+document.addEventListener('DOMContentLoaded', () => {
+  const root = document.createElement('div');
+  document.body.appendChild(root);
+  ReactDOM.render(<App store={store} />, root);
+});

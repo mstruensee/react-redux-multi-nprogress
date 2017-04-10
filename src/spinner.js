@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import NProgress from 'nprogress';
 
 class Spinner extends React.Component {
@@ -33,13 +34,13 @@ class Spinner extends React.Component {
 }
 
 Spinner.contextTypes = {
-  store: React.PropTypes.shape({
-    getState: React.PropTypes.func.isRequired
+  store: PropTypes.shape({
+    getState: PropTypes.func.isRequired
   })
 };
 
 Spinner.propTypes = {
-  config: React.PropTypes.object
+  config: PropTypes.object
 };
 
 Spinner.defaultProps = {

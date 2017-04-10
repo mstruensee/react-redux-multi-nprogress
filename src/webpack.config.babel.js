@@ -14,17 +14,17 @@ const config = [
       'react-dom': 'ReactDOM'
     },
     output: {
-      path: __dirname + '/dist/',
+      path: path.join(__dirname, '..', 'dist'),
       filename: 'react-redux-spinner.js',
       library: 'react-redux-spinner',
       libraryTarget: 'umd',
       publicPath: '/dist/'
     },
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.jsx?$/,
-          include: [ path.join(__dirname, 'src/') ],
+          include: [ __dirname ],
           loader: 'babel-loader'
         },
         {
