@@ -1,6 +1,7 @@
 const actionKey = Symbol('@@react-redux-spinner/pending-task');
 const begin = Symbol('@@react-redux-spinner/begin');
 const end = Symbol('@@react-redux-spinner/end');
+const endAll = Symbol('@@react-redux-spinner/end-all');
 
 const configurablePendingTasksReducer = ({ actionKeyPath = [] } = {}) => {
   return (state = 0, action) => {
@@ -21,6 +22,9 @@ const configurablePendingTasksReducer = ({ actionKeyPath = [] } = {}) => {
       }
       return state - 1;
     }
+    if (obj[actionKey] === endAll) {
+      return 0;
+    }
 
     return state;
   };
@@ -28,4 +32,4 @@ const configurablePendingTasksReducer = ({ actionKeyPath = [] } = {}) => {
 
 const pendingTasksReducer = configurablePendingTasksReducer();
 
-export { actionKey, begin, end, pendingTasksReducer, configurablePendingTasksReducer };
+export { actionKey, begin, end, endAll, pendingTasksReducer, configurablePendingTasksReducer };
