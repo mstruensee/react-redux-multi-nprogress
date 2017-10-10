@@ -1,7 +1,5 @@
 import path from 'path';
-import { optimize } from 'webpack';
-
-const { UglifyJsPlugin } = optimize;
+import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
 
 const config = [
   {
@@ -29,16 +27,27 @@ const config = [
         },
         {
           test: /\.css$/,
-          loader: 'style-loader!css-loader'
+          use: [
+            {
+              loader: 'style-loader',
+              options: {
+                hmr: false,
+                sourceMap: false
+              }
+            },
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: true,
+                sourceMap: false
+              }
+            }
+          ]
         }
       ]
     },
     plugins: [
-      new UglifyJsPlugin({
-        output: {
-          comments: false
-        }
-      }),
+      new UglifyJSPlugin()
     ]
   }
 ];
