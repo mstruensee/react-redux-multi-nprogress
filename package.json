@@ -10,7 +10,7 @@
     "mocha": "mocha --compilers js:babel-core/register",
     "test": "yarn mocha && yarn lint",
     "build": "NODE_ENV=production webpack --config src/webpack.config.babel.js",
-    "prepublish": "yarn build"
+    "prepublishOnly": "yarn build"
   },
   "repository": {
     "type": "git",
