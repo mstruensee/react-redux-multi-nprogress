@@ -21,7 +21,8 @@ import {
   pendingTasksReducer, // The redux reducer
   pendingTask, // The action key for modifying loading state
   begin, // The action value if a "long" running task begun
-  end // The action value if a "long" running task ended
+  end, // The action value if a "long" running task ended
+  endAll // The action value if all running tasks must end
 } from 'react-redux-spinner';
 ```
 
@@ -66,6 +67,15 @@ When your long running task is done.
 store.dispatch({
   type: 'ANY_OF_YOUR_ACTION_TYPES_DONE'
   [ pendingTask ]: end // Bracket [] embrace, remember?
+  // Any additional key/values may be included here
+});
+```
+
+When you want to force the finish of all pending tasks (for example: with a global error).
+```javascript
+store.dispatch({
+  type: 'ANY_OF_YOUR_ACTION_TYPES_FINISH'
+  [ pendingTask ]: endAll // Bracket [] embrace, remember?
   // Any additional key/values may be included here
 });
 ```

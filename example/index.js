@@ -13,7 +13,9 @@ import {
   // When a pending task has begun
   begin,
   // When a pending task has ended
-  end
+  end,
+  // When all pending tasks are forced to end
+  endAll
 } from '../src';
 
 import './style.css';
@@ -40,6 +42,7 @@ class App extends Component {
     }));
     this.increase = this.increase.bind(this);
     this.decrease = this.decrease.bind(this);
+    this.finishAll = this.finishAll.bind(this);
   }
 
   getChildContext() {
@@ -64,6 +67,13 @@ class App extends Component {
     });
   }
 
+  finishAll() {
+    store.dispatch({
+      type: 'FINISH_ALL_PENDING_TASKS',
+      [ pendingTask ]: endAll // key surrounded by [] to evaluate the value
+    });
+  }
+
   render() {
     return (
       <div>
@@ -72,6 +82,7 @@ class App extends Component {
         <div className="buttons">
           <button onClick={this.increase}>Start async task</button>
           <button onClick={this.decrease}>Finish async task</button>
+          <button onClick={this.finishAll}>Finish all tasks</button>
         </div>
         <div className="state">
           Current pending tasks: { this.state.pendingTasks }

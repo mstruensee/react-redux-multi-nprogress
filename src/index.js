@@ -1,5 +1,5 @@
 import './nprogress.css';
-import { configurablePendingTasksReducer, pendingTasksReducer, actionKey, begin, end } from './reducer.js';
+import { configurablePendingTasksReducer, pendingTasksReducer, actionKey, begin, end, endAll } from './reducer.js';
 import Spinner from './spinner.js';
 
 export {
@@ -8,5 +8,6 @@ export {
   Spinner,
   actionKey as pendingTask,
   begin,
-  end
+  end,
+  endAll
 };

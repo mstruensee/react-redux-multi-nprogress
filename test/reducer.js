@@ -1,5 +1,5 @@
 import expect from 'expect.js';
-import { configurablePendingTasksReducer, pendingTasksReducer, actionKey, begin, end } from '../src/reducer';
+import { configurablePendingTasksReducer, pendingTasksReducer, actionKey, begin, end, endAll } from '../src/reducer';
 
 describe('reducer', () => {
   describe('default', () => {
@@ -15,6 +15,14 @@ describe('reducer', () => {
       expect(pendingTasksReducer).withArgs(0, { [ actionKey ]: end }).to.throwException(err => {
         expect(err).to.be.a(RangeError);
       });
+    });
+
+    it('should decrease to 0 when all pending tasks end', () => {
+      expect(pendingTasksReducer(55, { [ actionKey ]: endAll })).to.be(0);
+    });
+
+    it('should not trigger errors if endAll is called when there are no pending tasks', () => {
+      expect(pendingTasksReducer(0, { [ actionKey ]: endAll })).to.be(0);
     });
   });
 
@@ -39,12 +47,15 @@ describe('reducer', () => {
       const reducer = configurablePendingTasksReducer({ actionKeyPath: [ 'meta' ] });
       expect(reducer(0, { [ actionKey ]: begin })).to.be(0);
       expect(reducer(1, { [ actionKey ]: end })).to.be(1);
+      expect(reducer(2, { [ actionKey ]: endAll })).to.be(2);
     });
 
     it('should increase/decrease on deeply configured paths', () => {
       const reducer = configurablePendingTasksReducer({ actionKeyPath: [ 'my', 'other', 'way' ] });
       expect(reducer(1, { my: { other: { way: { [ actionKey ]: begin } } } })).to.be(2);
       expect(reducer(4, { my: { other: { way: { [ actionKey ]: end } } } })).to.be(3);
+      expect(reducer(55, { my: { other: { way: { [ actionKey ]: endAll } } } })).to.be(0);
+      expect(reducer(0, { my: { other: { way: { [ actionKey ]: endAll } } } })).to.be(0);
 
       expect(reducer).withArgs(0, { my: { other: { way: { [ actionKey ]: end } } } }).to.throwException(err => {
         expect(err).to.be.a(RangeError);
