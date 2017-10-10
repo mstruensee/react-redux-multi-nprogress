@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import NProgress from 'nprogress';
 
 class Spinner extends React.Component {
-
   componentWillMount() {
     const { store } = this.context;
     const { config } = this.props;
