@@ -1,11 +1,10 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { optimize } from 'webpack';
+import { DefinePlugin } from 'webpack';
+import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
 
-const { UglifyJsPlugin } = optimize;
 
 const config = {
-  devtool: 'cheap-module-source-map',
   name: 'react-redux-spinner-example',
   entry: [
     './example/index.js'
@@ -28,18 +27,17 @@ const config = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      inject: 'head'
-    })
+    new DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV) }),
+    new HtmlWebpackPlugin({ inject: 'head', title: 'React Redux Spinner' })
   ]
 };
 
+if (process.env.NODE_ENV === 'development') {
+  config.devtool = 'cheap-module-source-map';
+}
+
 if (process.env.NODE_ENV !== 'development') {
-  config.plugins.push(new UglifyJsPlugin({
-    output: {
-      comments: false
-    }
-  }));
+  config.plugins.push(new UglifyJSPlugin());
 }
 
 module.exports = config;
