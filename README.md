@@ -103,7 +103,7 @@ In `webpack.config.js`:
 
 and in your css files (the tilde `~` means "look in node_modules"):
 ```
-@import '~react-redux-spinner/dist/nprogress.css';
+@import '~react-redux-spinner/dist/react-redux-spinner.css';
 ```
 
 ## Configurable reducer
