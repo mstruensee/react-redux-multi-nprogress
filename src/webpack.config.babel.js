@@ -11,7 +11,8 @@ const config = [
     ],
     externals: {
       react: 'react',
-      'react-dom': 'ReactDOM'
+      'react-dom': 'ReactDOM',
+      'prop-types': 'PropTypes'
     },
     output: {
       path: path.join(__dirname, '..', 'dist'),
