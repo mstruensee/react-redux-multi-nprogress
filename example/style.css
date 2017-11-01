@@ -1,3 +1,5 @@
+@import '../src/nprogress.css';
+
 body {
   margin: 0;
   color: #34495E;

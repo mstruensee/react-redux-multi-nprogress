@@ -80,6 +80,32 @@ store.dispatch({
 });
 ```
 
+### CSS
+
+By default, no styling is included. You can either roll your own. Feel free
+to use [the default css as boilerplate](src/nprogress.css).
+
+If you're using webpack as your bundler, you could use [style-loader](https://github.com/webpack-contrib/style-loader)
+and [css-loader](https://github.com/webpack-contrib/css-loader) to include the default css.
+
+In `webpack.config.js`:
+```
+  // ...
+  module: {
+    rules: {
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      }
+    }
+  }
+```
+
+and in your css files (the tilde `~` means "look in node_modules"):
+```
+@import '~react-redux-spinner/dist/nprogress.css';
+```
+
 ## Configurable reducer
 
 Maybe you cannot have the `pendingTask` in the root of your actions.
@@ -157,4 +183,3 @@ const reducer = combineReducers({ pendingTasks });
     return (<Spinner config={{ trickleRate: 0.02 }} />)
   }
 ```
-
