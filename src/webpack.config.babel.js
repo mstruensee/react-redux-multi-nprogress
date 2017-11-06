@@ -1,15 +1,18 @@
 import path from 'path';
 import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const config = [
   {
     name: 'react-redux-spinner',
     entry: [
+      './src/nprogress.css',
       './src/index.js'
     ],
     externals: {
       react: 'react',
-      'react-dom': 'ReactDOM'
+      'react-dom': 'ReactDOM',
+      'prop-types': 'PropTypes'
     },
     output: {
       path: path.join(__dirname, '..', 'dist'),
@@ -21,33 +24,27 @@ const config = [
     module: {
       rules: [
         {
-          test: /\.jsx?$/,
+          test: /\.js$/,
           include: [ __dirname ],
           loader: 'babel-loader'
         },
         {
           test: /\.css$/,
-          use: [
-            {
-              loader: 'style-loader',
-              options: {
-                hmr: false,
-                sourceMap: false
-              }
-            },
-            {
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: {
               loader: 'css-loader',
               options: {
-                minimize: true,
-                sourceMap: false
+                minimize: true
               }
             }
-          ]
+          })
         }
       ]
     },
     plugins: [
-      new UglifyJSPlugin()
+      new UglifyJSPlugin(),
+      new ExtractTextPlugin('react-redux-spinner.css')
     ]
   }
 ];
