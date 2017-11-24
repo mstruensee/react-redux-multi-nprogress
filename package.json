@@ -66,5 +66,5 @@
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   },
-  "types": "src/index.d.ts"
+  "types": "index.d.ts"
 }
