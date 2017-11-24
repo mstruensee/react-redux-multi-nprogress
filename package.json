@@ -30,8 +30,6 @@
   },
   "homepage": "https://github.com/Storytel/react-redux-spinner#readme",
   "dependencies": {
-    "@types/nprogress": "~0.0.29",
-    "@types/react": "~16.0.25",
     "prop-types": "^15.5.7"
   },
   "peerDependencies": {
