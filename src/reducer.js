@@ -1,7 +1,7 @@
-const actionKey = Symbol('@@react-redux-spinner/pending-task');
-const begin = Symbol('@@react-redux-spinner/begin');
-const end = Symbol('@@react-redux-spinner/end');
-const endAll = Symbol('@@react-redux-spinner/end-all');
+const actionKey = '@@react-redux-spinner/pending-task';
+const begin = '@@react-redux-spinner/begin';
+const end = '@@react-redux-spinner/end';
+const endAll = '@@react-redux-spinner/end-all';
 
 const configurablePendingTasksReducer = ({ actionKeyPath = [] } = {}) => {
   return (state = 0, action) => {
