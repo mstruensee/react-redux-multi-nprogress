@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/Storytel/react-redux-spinner#readme",
   "dependencies": {
+    "@types/nprogress": "~0.0.29",
     "prop-types": "^15.5.7"
   },
   "peerDependencies": {
@@ -38,6 +39,7 @@
     "redux": "^3.0.0"
   },
   "devDependencies": {
+    "@types/react": "~16.0.25",
     "babel-cli": "^6.6.5",
     "babel-core": "^6.7.2",
     "babel-eslint": "^8.0.2",
@@ -64,5 +66,5 @@
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   },
-  "types": "index.d.ts"
+  "types": "src/index.d.ts"
 }
