@@ -18,7 +18,7 @@ interface Action {
 }
 type Reducer = (state: State, action: Action) => State;
 
-export const pendingTaskReducer: Reducer;
+export const pendingTasksReducer: Reducer;
 
 export interface ConfigurablePendingTasksReducerOptions {
   actionKeyPath: ReadonlyArray<string>;
