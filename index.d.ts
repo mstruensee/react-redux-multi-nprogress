@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as NProgress from 'nprogress';
+import * as NProgress from 'multi-nprogress';
 
 export const begin: string;
 export const end: string;

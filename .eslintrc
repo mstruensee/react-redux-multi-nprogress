@@ -4,5 +4,7 @@
     "storytel",
     "storytel/react"
   ],
-  "plugins": [ "react" ],
+  "plugins": [
+    "react"
+  ]
 }

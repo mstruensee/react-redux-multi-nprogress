@@ -4,7 +4,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const config = [
   {
-    name: 'react-redux-spinner',
+    name: 'react-redux-multi-nprogress',
     entry: [
       './src/nprogress.css',
       './src/index.js'
@@ -16,8 +16,8 @@ const config = [
     },
     output: {
       path: path.join(__dirname, '..', 'dist'),
-      filename: 'react-redux-spinner.js',
-      library: 'react-redux-spinner',
+      filename: 'react-redux-multi-nprogress.js',
+      library: 'react-redux-multi-nprogress',
       libraryTarget: 'umd',
       publicPath: '/dist/'
     },
@@ -44,7 +44,7 @@ const config = [
     },
     plugins: [
       new UglifyJSPlugin(),
-      new ExtractTextPlugin('react-redux-spinner.css')
+      new ExtractTextPlugin('react-redux-multi-nprogress.css')
     ]
   }
 ];

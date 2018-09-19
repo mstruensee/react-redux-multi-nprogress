@@ -1,49 +1,52 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import NProgress from 'nprogress';
+import React from "react"
+import PropTypes from "prop-types"
+import NProgress from "./nprogress"
 
 class Spinner extends React.Component {
-  componentDidMount() {
-    const { store } = this.context;
-    const { config } = this.props;
-    this.previousPendingTasks = store.getState().pendingTasks;
-    NProgress.configure(config);
-    this.disposeStoreSubscription = store.subscribe(() => {
-      const diff = store.getState().pendingTasks - this.previousPendingTasks;
-      if (diff > 0) {
-        NProgress.start();
-      }
-      if (diff < 0) {
-        NProgress.inc();
-      }
-      if (store.getState().pendingTasks === 0) {
-        NProgress.done();
-      }
-      this.previousPendingTasks = store.getState().pendingTasks;
-    });
-  }
+    componentDidMount() {
+        const { store } = this.context
+        const { config } = this.props
+        const nprogress = NProgress()
+        this.previousPendingTasks = store.getState().pendingTasks
+        nprogress.configure(config)
 
-  componentWillUnmount() {
-    this.disposeStoreSubscription();
-  }
+        this.disposeStoreSubscription = store.subscribe(() => {
+            console.log(nprogress.settings)
+            const diff = store.getState().pendingTasks - this.previousPendingTasks
+            if (diff > 0) {
+                nprogress.start()
+            }
+            if (diff < 0) {
+                nprogress.inc()
+            }
+            if (store.getState().pendingTasks === 0) {
+                nprogress.done()
+            }
+            this.previousPendingTasks = store.getState().pendingTasks
+        })
+    }
 
-  render() {
-    return false;
-  }
+    componentWillUnmount() {
+        this.disposeStoreSubscription()
+    }
+
+    render() {
+        return false
+    }
 }
 
 Spinner.contextTypes = {
-  store: PropTypes.shape({
-    getState: PropTypes.func.isRequired
-  })
-};
+    store: PropTypes.shape({
+        getState: PropTypes.func.isRequired
+    })
+}
 
 Spinner.propTypes = {
-  config: PropTypes.object
-};
+    config: PropTypes.object
+}
 
 Spinner.defaultProps = {
-  config: {}
-};
+    config: {}
+}
 
-export default Spinner;
+export default Spinner

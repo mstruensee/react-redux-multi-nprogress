@@ -77,7 +77,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Spinner config={{ trickleRate: 0.02 }} />
+        <Spinner config={{ trickleRate: 0.02, parent: 'body'}} />
+        <Spinner config={{ trickleRate: 0.02, parent: 'div.buttons' }} />
+        <Spinner config={{ trickleRate: 0.02, parent: 'div.state' }} />
         <h1>react-redux-spinner example</h1>
         <div className="buttons">
           <button onClick={this.increase}>Start async task</button>
