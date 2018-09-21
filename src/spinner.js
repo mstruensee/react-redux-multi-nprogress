@@ -6,23 +6,25 @@ class Spinner extends React.Component {
     componentDidMount() {
         const { store } = this.context
         const { config } = this.props
+        const { spinnerKey = "pendingTasks" } = config
         const nprogress = NProgress()
-        this.previousPendingTasks = store.getState().pendingTasks
+
+        this.previousPendingTasks = store.getState()[spinnerKey]
         nprogress.configure(config)
 
         this.disposeStoreSubscription = store.subscribe(() => {
-            console.log(nprogress.settings)
-            const diff = store.getState().pendingTasks - this.previousPendingTasks
+            console.log("aaaaaa", spinnerKey)
+            const diff = store.getState()[spinnerKey] - this.previousPendingTasks
             if (diff > 0) {
                 nprogress.start()
             }
             if (diff < 0) {
                 nprogress.inc()
             }
-            if (store.getState().pendingTasks === 0) {
+            if (store.getState()[spinnerKey] === 0) {
                 nprogress.done()
             }
-            this.previousPendingTasks = store.getState().pendingTasks
+            this.previousPendingTasks = store.getState()[spinnerKey]
         })
     }
 
