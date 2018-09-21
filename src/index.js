@@ -1,4 +1,4 @@
-import { configurablePendingTasksReducer, pendingTasksReducer, actionKey, begin, end, endAll } from './reducer.js';
+import { configurablePendingTasksReducer, pendingTasksReducer, actionKey, actionKey2,begin, end, endAll } from './reducer.js';
 import Spinner from './spinner.js';
 
 export {
@@ -6,6 +6,7 @@ export {
   pendingTasksReducer,
   Spinner,
   actionKey as pendingTask,
+  actionKey2 as pendingTask2,
   begin,
   end,
   endAll

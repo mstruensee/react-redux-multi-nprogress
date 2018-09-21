@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import ReactDOM from "react-dom"
 import { combineReducers, createStore } from "redux"
 
-import { begin, configurablePendingTasksReducer, end, endAll, pendingTask, pendingTasksReducer, Spinner } from "../src"
+import { begin, configurablePendingTasksReducer, end, endAll, pendingTask, pendingTask2, pendingTasksReducer, Spinner } from "../src"
 
 import "./style.css"
 
@@ -51,23 +51,23 @@ class App extends Component {
     increase() {
         store.dispatch({
             type: "FETCHING_ASYNC_DATA",
-            [pendingTask]: begin // key surrounded by [] to evaluate the value
+            [pendingTask2()]: begin,
         })
     }
 
     increaseButtons() {
         store.dispatch({
             type: "FETCHING_ASYNC_DATA",
-            [pendingTask]: begin, // key surrounded by [] to evaluate the value
-            meta: { spinnerKey: "buttons" }
+            [pendingTask2()]: begin,
+            [pendingTask2('buttons')]: begin
         })
     }
 
     increaseState() {
         store.dispatch({
             type: "FETCHING_ASYNC_DATA",
-            [pendingTask]: begin, // key surrounded by [] to evaluate the value
-            meta: { spinnerKey: "state" }
+            [pendingTask2()]: begin,
+            [pendingTask2('state')]: begin
         })
     }
 
@@ -78,7 +78,8 @@ class App extends Component {
 
         store.dispatch({
             type: "DONE_FETCHING_ASYNC_DATA",
-            [pendingTask]: end // key surrounded by [] to evaluate the value
+            [pendingTask2()]: end,
+            [pendingTask2()]: end
         })
     }
 
@@ -89,8 +90,8 @@ class App extends Component {
 
         store.dispatch({
             type: "DONE_FETCHING_ASYNC_DATA",
-            [pendingTask]: end, // key surrounded by [] to evaluate the value
-            meta: { spinnerKey: "buttons" }
+            [pendingTask2()]: end,
+            [pendingTask2('buttons')]: end
         })
     }
 
@@ -101,31 +102,29 @@ class App extends Component {
 
         store.dispatch({
             type: "DONE_FETCHING_ASYNC_DATA",
-            [pendingTask]: end, // key surrounded by [] to evaluate the value
-            meta: { spinnerKey: "state" }
+            [pendingTask2()]: end,
+            [pendingTask2('state')]: end
         })
     }
 
     finishAll() {
         store.dispatch({
             type: "FINISH_ALL_PENDING_TASKS",
-            [pendingTask]: endAll // key surrounded by [] to evaluate the value
+            [pendingTask2()]: endAll
         })
     }
 
     finishAllButtons() {
         store.dispatch({
             type: "FINISH_ALL_PENDING_TASKS",
-            [pendingTask]: endAll, // key surrounded by [] to evaluate the value
-            meta: { spinnerKey: "buttons" }
+            [pendingTask2('buttons')]: endAll
         })
     }
 
     finishAllState() {
         store.dispatch({
             type: "FINISH_ALL_PENDING_TASKS",
-            [pendingTask]: endAll, // key surrounded by [] to evaluate the value
-            meta: { spinnerKey: "state" }
+            [pendingTask2('state')]: endAll
         })
     }
 

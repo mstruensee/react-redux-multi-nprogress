@@ -3,6 +3,31 @@
   pointer-events: none;
 }
 
+.buttons > .nprogress .bar {
+  background: cyan;
+}
+
+.buttons > .nprogress .peg {
+  box-shadow: 0 0 10px cyan, 0 0 5px cyan;
+}
+.buttons > .nprogress .spinner-icon {
+  border-top-color: cyan;
+  border-left-color: cyan;
+}
+
+
+.state > .nprogress .bar {
+  background: red;
+}
+
+.state > .nprogress .peg {
+  box-shadow: 0 0 10px red, 0 0 5px red;
+}
+.state > .nprogress .spinner-icon {
+  border-top-color: red;
+  border-left-color: red;
+}
+
 .nprogress .bar {
   background: #29d;
 
